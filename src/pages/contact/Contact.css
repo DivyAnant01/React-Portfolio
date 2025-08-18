@@ -1,0 +1,170 @@
+.container-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #2c2c76, #000);
+  color: #fff;
+}
+
+.intro-text h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.intro-text p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #ccc;
+}
+
+.help-section {
+  margin-bottom: 30px;
+}
+
+.help-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #9c97f1;
+}
+
+.help-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.help-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s;
+}
+
+.help-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.contact-card {
+  width: 280px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #2c2c76, #000);
+  transition: all 0.5s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.contact-card.expanded {
+  width: 900px;
+  max-width: 95%;
+  height: auto;
+  padding: 20px;
+  cursor: default;
+}
+
+.card-content {
+  display: flex;
+  flex-wrap: wrap;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.contact-card.expanded .card-content {
+  opacity: 1;
+}
+
+.contact-info, .contact-form {
+  flex: 1;
+  padding: 20px;
+}
+
+.contact-info h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.info-line {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #999;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background: #6a67ce;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff79c6;
+}
+
+.glowing-border {
+  animation: glow 2s infinite alternate;
+  border: 2px solid transparent;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 10px #6a67ce; border-color: #6a67ce; }
+  100% { box-shadow: 0 0 20px #ff79c6; border-color: #ff79c6; }
+}
+
+.tap-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: #fff;
+  animation: blink 1s infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes blink {
+  0% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+@media (max-width: 768px) {
+  .card-content {
+    flex-direction: column;
+  }
+
+  .help-items {
+    flex-direction: column;
+  }
+}
