@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./services.css";
+import "./Services.css";
 import { FaLaptopCode, FaServer, FaDatabase, FaMobileAlt, FaCloud } from "react-icons/fa";
 
 const Services = () => {
