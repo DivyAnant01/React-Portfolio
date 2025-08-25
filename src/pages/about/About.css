@@ -1,96 +1,144 @@
 .about-section {
-  padding: 60px 20px;
-  background: #0a0a23;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
   color: #fff;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .about-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
+  gap: 50px;
+  align-items: flex-start;
   flex-wrap: wrap;
-  max-width: 1100px;
-  width: 100%;
-  align-items: center;
-  gap: 40px;
 }
 
+/* Left Profile Section */
 .about-left {
   flex: 1;
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 .profile-img {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  border: 5px solid #9c97f1;
+  width: 320px;
+  height: 320px;
   object-fit: cover;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease;
+  border-radius: 50%;
+  border: 6px solid #9c97f1;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.6);
 }
 
-.profile-img:hover {
-  transform: scale(1.05);
-}
-
+/* Right Section */
 .about-right {
   flex: 2;
 }
 
-.about-right h2 {
+.section-title {
   font-size: 2.2rem;
   margin-bottom: 15px;
   color: #9c97f1;
 }
 
-.about-right p {
-  margin-bottom: 15px;
-  line-height: 1.6;
-  font-size: 1rem;
-  color: #ddd;
-}
-
-.about-right h3 {
+.sub-title {
   font-size: 1.5rem;
-  margin: 20px 0 10px;
-  color: #fff;
+  margin: 30px 0 15px;
+  color: #e2e8f0;
 }
 
-.about-right ul {
-  list-style: none;
-  padding-left: 0;
+.intro-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #d1d5db;
+  margin-bottom: 20px;
 }
 
-.about-right ul li {
-  margin-bottom: 8px;
-  padding-left: 15px;
-  position: relative;
-  color: #ccc;
-}
-
-.about-right ul li::before {
-  content: "✔";
-  position: absolute;
-  left: 0;
+.highlight {
   color: #9c97f1;
+  font-weight: bold;
 }
 
-@media (max-width: 900px) {
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.skill-badge {
+  background: rgba(156, 151, 241, 0.15);
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #e0e7ff;
+  border: 1px solid rgba(156, 151, 241, 0.3);
+  transition: all 0.3s ease;
+}
+
+.skill-badge:hover {
+  background: #9c97f1;
+  color: #0f172a;
+  transform: translateY(-3px);
+}
+
+/* Education Section */
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.education-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 6px solid #9c97f1;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+}
+
+.education-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: #f1f5f9;
+}
+
+.education-card .degree {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #cbd5e1;
+}
+
+.education-card .grade {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+}
+
+.education-card .edu-duration {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #94a3b8;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
   .about-container {
     flex-direction: column;
     text-align: center;
   }
 
-  .about-left {
-    margin-bottom: 20px;
+  .about-right {
+    flex: 1;
   }
 
-  .profile-img {
-    width: 200px;
-    height: 200px;
+  .education-card {
+    text-align: left;
   }
 }
