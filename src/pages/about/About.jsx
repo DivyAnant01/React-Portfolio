@@ -69,14 +69,14 @@ function About() {
               <h4>Galgotias University, Greater Noida</h4>
               <p className="degree">Master of Computer Applications (MCA)</p>
               <p className="grade">Score: <span className="highlight">75%</span></p>
-              <p className="edu-duration">Sept 2020 - April 2023</p>
+              <p className="edu-duration">Aug 2023 - May 2025</p>
             </div>
 
             <div className="education-card">
               <h4>Institute of Information Management & Technology, Aligarh</h4>
               <p className="degree">Bachelor of Computer Applications (BCA)</p>
               <p className="grade">Score: <span className="highlight">76.7%</span></p>
-              <p className="edu-duration">Aug 2023 - May 2025</p>
+              <p className="edu-duration">Sept 2020 - April 2023</p>
             </div>
           </div>
 
