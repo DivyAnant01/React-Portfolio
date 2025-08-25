@@ -7,21 +7,42 @@ import "./Home.css";
 
 const Portfolio = () => {
   useEffect(() => {
-    // Typed.js Animation
     const typed = new Typed("#element", {
-      strings: ["Web Developer", "Graphic Designer", "Web Designer", "Video Editor", "Logo Designer."],
+      strings: [
+        "Web Developer",
+        "Graphic Designer",
+        "Web Designer",
+        "Video Editor",
+        "Logo Designer."
+      ],
       typeSpeed: 50,
       backSpeed: 30,
       loop: true,
     });
 
-    // GSAP Animations for Footer
-    gsap.from(".footer-content h2", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
-    gsap.from(".knowledge p", { duration: 1, y: 30, opacity: 0, stagger: 0.3, ease: "power2.out" });
-    gsap.from(".social-icons a", { duration: 1, scale: 0, opacity: 0, stagger: 0.2, ease: "back.out(1.7)" });
+    gsap.from(".footer-content h2", {
+      duration: 1,
+      y: -50,
+      opacity: 0,
+      ease: "power2.out",
+    });
+    gsap.from(".knowledge p", {
+      duration: 1,
+      y: 30,
+      opacity: 0,
+      stagger: 0.3,
+      ease: "power2.out",
+    });
+    gsap.from(".social-icons a", {
+      duration: 1,
+      scale: 0,
+      opacity: 0,
+      stagger: 0.2,
+      ease: "back.out(1.7)",
+    });
 
-    // Set current year dynamically
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
 
     return () => typed.destroy();
   }, []);
@@ -51,8 +72,12 @@ const Portfolio = () => {
           <div>and I am a passionate</div>
           <span id="element"></span>
           <div className="buttons">
-            <button onClick={downloadResume} className="btn">Download Resume</button>
-            <button onClick={openGithub} className="btn">Visit GitHub</button>
+            <button onClick={downloadResume} className="btn">
+              Download Resume
+            </button>
+            <button onClick={openGithub} className="btn">
+              Visit GitHub
+            </button>
           </div>
         </div>
         <div className="rightsection">
@@ -66,37 +91,126 @@ const Portfolio = () => {
       <section className="secondsection">
         <span className="text-grey">What I have done so far</span>
         <h1>Projects & Internships</h1>
+
         <div className="box">
+
+          {/* Internship */}
           <div className="vertical">
-            <div className="image-top"><i className="fas fa-laptop-code"></i></div>
-            <div className="vertical-title">MERN Stack Developer Intern (May–June 2025)</div>
-            <div className="vertical-desc">Completed full-stack internship at Codec Technologies. Built responsive web apps using MongoDB, Express.js, React.js, Node.js. Certified by AICTE.</div>
+            <div className="image-top">
+              <i className="fas fa-laptop-code"></i>
+            </div>
+            <div className="vertical-title">
+              MERN Stack Developer Intern (May–June 2025)
+            </div>
+            <div className="vertical-desc">
+              Completed full-stack internship at Codec Technologies. Built
+              responsive web apps using MongoDB, Express.js, React.js,
+              Node.js. Certified by AICTE.
+            </div>
           </div>
+
+          {/* Wanderlust */}
           <div className="vertical">
-            <div className="image-top"><i className="fas fa-home"></i></div>
+            <div className="image-top">
+              <i className="fas fa-home"></i>
+            </div>
             <div className="vertical-title">Wanderlust – Rental Web App (2025)</div>
-            <div className="vertical-desc">Full-stack property rental platform with MERN and Cloudinary. Live: <a href="https://wanderlust-visit.onrender.com" target="_blank" rel="noreferrer" className="vertical-link">Visit</a>.</div>
+            <div className="vertical-desc">
+              Full-stack property rental platform with MERN and Cloudinary.{" "}
+              Live:{" "}
+              <a
+                href="https://wanderlust-visit.onrender.com"
+                target="_blank"
+                rel="noreferrer"
+                className="vertical-link"
+              >
+                Visit
+              </a>
+              .
+            </div>
           </div>
+
+          {/* Portfolio */}
           <div className="vertical">
-            <div className="image-top"><i className="fas fa-globe"></i></div>
+            <div className="image-top">
+              <i className="fas fa-globe"></i>
+            </div>
             <div className="vertical-title">Portfolio Website (2025)</div>
-            <div className="vertical-desc">Built with HTML, CSS, JS. GSAP animations for smooth and engaging UI.</div>
+            <div className="vertical-desc">
+              Built with HTML, CSS, JS. GSAP animations for smooth and
+              engaging UI.
+            </div>
           </div>
+
+          {/* Android App */}
           <div className="vertical">
-            <div className="image-top"><i className="fas fa-mobile-alt"></i></div>
+            <div className="image-top">
+              <i className="fas fa-mobile-alt"></i>
+            </div>
             <div className="vertical-title">Android App Dev (Winter 2024)</div>
-            <div className="vertical-desc">Completed training with IIIT Allahabad. Gained practical mobile UI/UX experience.</div>
+            <div className="vertical-desc">
+              Completed training with IIIT Allahabad. Gained practical
+              mobile UI/UX experience.
+            </div>
           </div>
+
+          {/* Java App */}
           <div className="vertical">
-            <div className="image-top"><i className="fas fa-briefcase"></i></div>
-            <div className="vertical-title">Java Business App Training (June 2025)</div>
-            <div className="vertical-desc">Scored 85% in IIT Bombay SINE training. Built Java-based business apps.</div>
+            <div className="image-top">
+              <i className="fas fa-briefcase"></i>
+            </div>
+            <div className="vertical-title">
+              Java Business App Training (June 2025)
+            </div>
+            <div className="vertical-desc">
+              Scored 85% in IIT Bombay SINE training. Built Java-based
+              business apps.
+            </div>
           </div>
+
+          {/* AR/VR */}
           <div className="vertical">
-            <div className="image-top"><i className="fas fa-vr-cardboard"></i></div>
+            <div className="image-top">
+              <i className="fas fa-vr-cardboard"></i>
+            </div>
             <div className="vertical-title">AR/VR Dev Training (2023)</div>
-            <div className="vertical-desc">Trained at iHUB IIT Roorkee. Developed immersive AR/VR applications.</div>
+            <div className="vertical-desc">
+              Trained at iHUB IIT Roorkee. Developed immersive AR/VR
+              applications.
+            </div>
           </div>
+
+          {/* ✅ NEW: E-Commerce React Project */}
+          <div className="vertical">
+            <div className="image-top">
+              <i className="fas fa-shopping-cart"></i>
+            </div>
+            <div className="vertical-title">E-Commerce React App (2025)</div>
+            <div className="vertical-desc">
+              A complete front-end e-commerce shopping app built with React JS
+              and Context API. Includes product listing, cart system, filters,
+              and responsive UI. <br />
+              Live:{" "}
+              <a
+                href="http://vshopmart.netlify.app"
+                target="_blank"
+                rel="noreferrer"
+                className="vertical-link"
+              >
+                Visit
+              </a>{" "}
+              | GitHub:{" "}
+              <a
+                href="https://github.com/DivyAnant01/E-Commerce-App.git"
+                target="_blank"
+                rel="noreferrer"
+                className="vertical-link"
+              >
+                Repo
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -115,7 +229,10 @@ const Portfolio = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; <span id="currentYear"></span> Divy Anant. All rights reserved.</p>
+          <p>
+            &copy; <span id="currentYear"></span> Divy Anant. All rights
+            reserved.
+          </p>
         </div>
       </footer>
     </main>
