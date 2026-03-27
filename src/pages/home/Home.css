@@ -1,3 +1,7 @@
+/* ============================= */
+/* 🌌 BASE STYLES */
+/* ============================= */
+
 body {
   margin: 0;
   background: black;
@@ -12,6 +16,10 @@ body {
   z-index: -1;
 }
 
+/* ============================= */
+/* 🚀 HERO SECTION */
+/* ============================= */
+
 .hero {
   display: flex;
   justify-content: space-between;
@@ -24,7 +32,7 @@ body {
   opacity: 0.15;
 }
 
-/* 🔥 GLOW */
+/* 🔥 GLOW TEXT */
 .glow-text {
   animation: glowPulse 2s infinite ease-in-out;
 }
@@ -43,7 +51,10 @@ body {
   }
 }
 
-/* ✅ SECTION TITLE CENTER */
+/* ============================= */
+/* 🧠 SECTION TITLE */
+/* ============================= */
+
 .section-title {
   text-align: center;
   font-size: 2.5rem;
@@ -51,7 +62,14 @@ body {
   letter-spacing: 1px;
 }
 
-/* BUTTONS */
+/* ============================= */
+/* 🎯 BUTTONS */
+/* ============================= */
+
+.buttons {
+  margin-top: 20px;
+}
+
 .btn {
   padding: 12px 25px;
   border-radius: 30px;
@@ -60,6 +78,11 @@ body {
   border: none;
   margin: 10px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
 }
 
 .outline {
@@ -68,7 +91,10 @@ body {
   color: white;
 }
 
-/* GRID */
+/* ============================= */
+/* 🧩 GRID + CARDS */
+/* ============================= */
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
@@ -76,21 +102,26 @@ body {
   padding: 0 10%;
 }
 
-/* CARD */
 .card {
   padding: 30px;
   border-radius: 20px;
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255,255,255,0.1);
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  box-shadow: 
+    0 0 20px rgba(255,255,255,0.2),
+    0 0 40px rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
-/* FOOTER */
+/* ============================= */
+/* 🦶 FOOTER */
+/* ============================= */
+
 .footer {
   text-align: center;
   padding: 60px;
@@ -114,4 +145,111 @@ body {
 .social-icons a:hover {
   color: #aaa;
   transform: scale(1.2);
+}
+
+/* ============================= */
+/* 📱 RESPONSIVE DESIGN */
+/* ============================= */
+
+/* 💻 Tablet */
+@media (max-width: 1024px) {
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 5%;
+  }
+
+  .hero-left {
+    margin-bottom: 50px;
+  }
+
+  .hero-right {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .big-text {
+    font-size: 3.5rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 5%;
+  }
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 80px 5%;
+  }
+
+  .hero-left h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-left p {
+    font-size: 1rem;
+  }
+
+  .big-text {
+    font-size: 2.5rem;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 80%;
+    margin: 8px 0;
+  }
+
+  .hero-right {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    padding: 0 5%;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* 📲 Small Mobile */
+@media (max-width: 480px) {
+
+  .hero {
+    padding: 60px 5%;
+  }
+
+  .big-text {
+    font-size: 2rem;
+  }
+
+  .hero-left h1 {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .social-icons a {
+    font-size: 24px;
+  }
 }
