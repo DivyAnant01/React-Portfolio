@@ -1,41 +1,37 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Nav.css";
 
 const Nav = () => {
   const [menuActive, setMenuActive] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuActive(!menuActive);
-  };
 
   return (
     <header>
       <nav>
         <div className="left">Anant's Portfolio</div>
 
-        {/* Hamburger Icon */}
-        <div className="menu-toggle" onClick={toggleMenu}>
+        {/* Hamburger */}
+        <div className="menu-toggle" onClick={() => setMenuActive(!menuActive)}>
           <i className="fa-solid fa-bars"></i>
         </div>
 
-        {/* Navigation Menu */}
+        {/* Menu */}
         <div className={`right ${menuActive ? "active" : ""}`}>
           <ul>
             <li>
-              <Link to="/" onClick={() => setMenuActive(false)}>Home</Link>
+              <NavLink to="/" onClick={() => setMenuActive(false)}>Home</NavLink>
             </li>
             <li>
-              <Link to="/about" onClick={() => setMenuActive(false)}>About</Link>
+              <NavLink to="/about" onClick={() => setMenuActive(false)}>About</NavLink>
             </li>
             <li>
-              <Link to="/services" onClick={() => setMenuActive(false)}>Services</Link>
+              <NavLink to="/services" onClick={() => setMenuActive(false)}>Services</NavLink>
             </li>
             <li>
-              <Link to="/certificates" onClick={() => setMenuActive(false)}>Certificates</Link>
+              <NavLink to="/certificates" onClick={() => setMenuActive(false)}>Certificates</NavLink>
             </li>
             <li>
-              <Link to="/contact" onClick={() => setMenuActive(false)}>Contact Me</Link>
+              <NavLink to="/contact" onClick={() => setMenuActive(false)}>Contact Me</NavLink>
             </li>
           </ul>
         </div>
