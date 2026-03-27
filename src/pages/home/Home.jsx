@@ -73,8 +73,20 @@ const Portfolio = () => {
           <h2 className="big-text glow-text">Full Stack Developer</h2>
 
           <div className="buttons">
-            <button className="btn">Download Resume</button>
-            <button className="btn outline">Visit GitHub</button>
+            
+            <button className="btn btn1">
+              <span>Download Resume</span>
+            </button>
+
+            <button
+              className="btn outline"
+              onClick={() =>
+                window.open("https://github.com/DivyAnant01", "_blank")
+              }
+            >
+              <span>Visit GitHub</span>
+            </button>
+
           </div>
         </div>
 
@@ -84,17 +96,16 @@ const Portfolio = () => {
 
       </section>
 
-      {/* CARDS SECTION */}
+      {/* CARDS */}
       <section className="cards">
 
-        {/* ✅ CENTERED TITLE */}
         <h2 className="section-title">Projects & Internships</h2>
 
         <div className="grid">
 
           <div className="card">
             <h3>MERN Stack Developer Intern</h3>
-            <p>Completed full-stack internship at Codec Technologies using MongoDB, Express.js, React.js, Node.js.</p>
+            <p>Completed full-stack internship using MongoDB, Express.js, React.js, Node.js.</p>
           </div>
 
           <div className="card">
@@ -130,7 +141,8 @@ const Portfolio = () => {
       <footer className="footer">
 
         <div className="social-icons">
-          <a href="https://github.com/" target="_blank" rel="noreferrer">
+
+          <a href="https://github.com/DivyAnant01" target="_blank" rel="noreferrer">
             <FaGithub />
           </a>
 
@@ -141,6 +153,7 @@ const Portfolio = () => {
           <a href="https://twitter.com/" target="_blank" rel="noreferrer">
             <FaXTwitter />
           </a>
+
         </div>
 
         <p>© 2026 Divy Anant | All Rights Reserved</p>
