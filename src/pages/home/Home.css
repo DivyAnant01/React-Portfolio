@@ -1,4 +1,4 @@
-/* BASE */
+/* ==================== BASE ==================== */
 body {
   margin: 0;
   background: black;
@@ -16,7 +16,7 @@ body {
   z-index: -1;
 }
 
-/* HERO SECTION */
+/* ==================== HERO SECTION ==================== */
 .hero {
   display: flex;
   justify-content: center;
@@ -71,7 +71,7 @@ body {
   }
 }
 
-/* BUTTONS */
+/* ==================== BUTTONS ==================== */
 .buttons {
   display: flex;
   flex-wrap: wrap;
@@ -90,6 +90,7 @@ body {
   cursor: pointer;
   overflow: hidden;
   font-weight: bold;
+  transition: 0.3s;
 }
 
 .btn1 {
@@ -139,7 +140,11 @@ body {
   }
 }
 
-/* LOTTIE */
+.btn:hover {
+  background-color: transparent;
+}
+
+/* ==================== LOTTIE ==================== */
 .hero-lottie {
   flex: 1 1 400px;
   min-width: 280px;
@@ -149,7 +154,7 @@ body {
   max-width: 400px;
 }
 
-/* CARDS SECTION */
+/* ==================== CARDS SECTION ==================== */
 .cards {
   padding: 80px 5%;
   text-align: center;
@@ -160,16 +165,20 @@ body {
   margin-bottom: 50px;
 }
 
+/* Flex container for cards */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 30px; /* space between cards */
   max-width: 1200px;
-  margin: 0 auto; /* Center the grid */
+  margin: 0 auto;
 }
 
+/* Individual card */
 .card {
+  flex: 1 1 calc(33.333% - 30px); /* 3 cards per row */
+  min-width: 250px; /* prevent cards from getting too small */
   padding: 30px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.05);
@@ -188,7 +197,7 @@ body {
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
-/* FOOTER */
+/* ==================== FOOTER ==================== */
 .footer {
   text-align: center;
   padding: 60px 20px;
@@ -210,11 +219,10 @@ body {
   transform: scale(1.2);
 }
 
-/* RESPONSIVE MEDIA QUERIES */
+/* ==================== RESPONSIVE MEDIA QUERIES ==================== */
 @media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
+  .card {
+    flex: 1 1 calc(50% - 30px); /* 2 cards per row */
   }
 }
 
@@ -224,9 +232,8 @@ body {
     gap: 40px;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .card {
+    flex: 1 1 100%; /* single column */
   }
 
   .hero-text {
@@ -260,8 +267,4 @@ body {
     height: auto;
     padding: 20px;
   }
-}
-
-.btn:hover{
-  background-color: transparent;
 }
