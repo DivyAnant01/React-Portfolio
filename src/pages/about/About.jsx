@@ -97,9 +97,9 @@ function About() {
           <h3 className="sub-title">Skills & Expertise</h3>
           <div className="skills-grid">
             <span className="skill-badge">React.js</span>
-            <span className="skill-badge">Vite</span>
-            <span className="skill-badge">GSAP</span>
-            <span className="skill-badge">TailwindCSS</span>
+            <span className="skill-badge">Java</span>
+            <span className="skill-badge">Servlet</span>
+            <span className="skill-badge">JavaFX</span>
             <span className="skill-badge">Node.js</span>
             <span className="skill-badge">Express.js</span>
             <span className="skill-badge">MongoDB</span>

@@ -55,7 +55,7 @@ const Services = () => {
           <div className="service-card backend" data-category="backend">
             <FaServer className="icon" />
             <h2>Backend Development</h2>
-            <p>Build robust server-side applications with Node.js, Express, Python, and REST APIs.</p>
+            <p>Build robust server-side applications with Node.js, Express, Java, and REST APIs.</p>
           </div>
 
           <div className="service-card database" data-category="database">
