@@ -146,6 +146,7 @@
   .about-container {
     flex-direction: column;
     text-align: center;
+    justify-content: center;
   }
 
   .about-right {
@@ -155,4 +156,6 @@
   .education-card {
     text-align: left;
   }
+
+
 }
