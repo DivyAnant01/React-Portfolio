@@ -46,8 +46,8 @@ body {
   margin-bottom: 10px;
 }
 
-.hero-text h1 span {
-  color: #00f0ff;
+.hero-text h1 div {
+  color: rgb(201, 101, 65);
 }
 
 .hero-text p {
@@ -56,8 +56,8 @@ body {
 }
 
 .big-text {
-  font-size: 4rem;
-  opacity: 0.1;
+  font-size: 3rem;
+  opacity: 0.5;
   margin-bottom: 20px;
 }
 
@@ -67,7 +67,7 @@ body {
 
 @keyframes glowPulse {
   50% {
-    text-shadow: 0 0 30px white;
+    text-shadow: 0 0 30px rgb(202, 99, 99);
   }
 }
 
@@ -163,6 +163,7 @@ body {
 .section-title {
   font-size: 2.5rem;
   margin-bottom: 50px;
+  /* color: rgb(201, 101, 65); */
 }
 
 /* Flex container for cards */

@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Contact.css";
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaHandPointer, FaLaptopCode, FaCogs, FaChartLine, FaMobileAlt } from "react-icons/fa";
+import { 
+  FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaHandPointer, 
+  FaLaptopCode, FaCogs, FaChartLine, FaMobileAlt 
+} from "react-icons/fa";
 
 function Contact() {
   const [expanded, setExpanded] = useState(false);
@@ -37,8 +40,74 @@ function Contact() {
     }
   };
 
+  // Particle background effect
+  useEffect(() => {
+    const canvas = document.getElementById("bg");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Generate particles
+    let particles = [];
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2.5 + 0.5,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5,
+      });
+    }
+
+    // Animate particles
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p, index) => {
+        // Move particle
+        p.x += p.dx;
+        p.y += p.dy;
+
+        // Bounce off edges
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+
+        // Draw particle
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255,255,255,0.8)";
+        ctx.fill();
+
+        // Draw lines between close particles
+        for (let j = index + 1; j < particles.length; j++) {
+          let p2 = particles[j];
+          let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(255,255,255,${1 - dist / 100})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="container-main">
+      <canvas id="bg"></canvas>
+
       <div className="intro-text">
         <h2>Let’s Work Together</h2>
         <p>Tap the glowing card below to get in touch</p>

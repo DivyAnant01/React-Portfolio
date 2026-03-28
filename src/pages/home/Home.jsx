@@ -66,9 +66,9 @@ const Portfolio = () => {
       <section className="hero">
         <div className="hero-content">
           <div className="hero-text">
-            <h1>Hi, My name is <span>Divy Anant</span></h1>
+            <h1>Hi, My name is <div>Divy Anant Varshney</div></h1>
             <p>and I am a passionate</p>
-            <h2 className="big-text glow-text">Full Stack Developer</h2>
+            <h3 className="big-text glow-text">Full Stack Developer</h3>
             <div className="buttons">
               <button className="btn btn1"><span>Download Resume</span></button>
               <button className="btn outline" onClick={() => window.open("https://github.com/DivyAnant01", "_blank")}>

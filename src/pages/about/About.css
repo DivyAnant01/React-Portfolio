@@ -1,10 +1,22 @@
 .about-section {
   padding: 80px 20px;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+  /* background: linear-gradient(135deg, #0f172a, #1e293b); */
   color: #fff;
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
+#bg-about {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Container */
 .about-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -12,6 +24,8 @@
   gap: 50px;
   align-items: flex-start;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
 /* Left Profile Section */

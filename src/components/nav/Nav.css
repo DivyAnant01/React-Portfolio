@@ -5,7 +5,7 @@ nav {
   align-items: center;
   padding: 14px 40px;
 
-  background: rgba(12, 18, 38, 0.75);
+  /* background: rgba(12, 18, 38, 0.75); */
   backdrop-filter: blur(14px);
 
   position: sticky;
