@@ -261,3 +261,7 @@ body {
     padding: 20px;
   }
 }
+
+.btn:hover{
+  background-color: transparent;
+}
