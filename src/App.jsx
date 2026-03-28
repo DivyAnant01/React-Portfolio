@@ -4,7 +4,7 @@ import Nav from './components/nav/Nav'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import About from "./pages/about/About"
 import Home from "./pages/home/Home"
-import Certificates from "./pages/certificates/Certificates"
+import Certificates from "./pages/certificates/Certificates.jsx"
 import Contact from "./pages/contact/Contact"
 import Services from './pages/services/Services';
 

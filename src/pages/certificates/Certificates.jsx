@@ -28,45 +28,114 @@ function Certificates() {
   ];
 
   useEffect(() => {
+    // GSAP entrance animation
     gsap.from(".card", {
       opacity: 0,
       y: 50,
-      duration: 0.8,
+      scale: 0.8,
+      duration: 1,
       stagger: 0.2,
+      ease: "power3.out",
       scrollTrigger: {
-        trigger: ".grid",
+        trigger: ".cards-container",
         start: "top 80%",
-        toggleActions: "play none none reset",
       },
     });
 
+    // 3D hover effect
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card) => {
+      const inner = card.querySelector(".card-inner");
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * 10;
+        const rotateY = ((x - centerX) / centerX) * 10;
+        inner.style.transform = `rotateY(${rotateY}deg) rotateX(${-rotateX}deg) scale(1.05)`;
+      });
+      card.addEventListener("mouseleave", () => {
+        inner.style.transform = `rotateY(0deg) rotateX(0deg) scale(1)`;
+      });
+    });
+
+    // Wave background mouse effect
     const wave = document.getElementById("wave");
     const handleMouseMove = (e) => {
       const { clientX: x, clientY: y } = e;
       if (wave) {
-        wave.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255, 255, 255, 0.15), transparent 40%)`;
+        wave.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.08), transparent 60%)`;
       }
     };
     document.addEventListener("mousemove", handleMouseMove);
 
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-    };
+    // Particle canvas
+    const canvas = document.getElementById("particle-bg");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+    for (let i = 0; i < 70; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2,
+        dx: Math.random() - 0.3,
+        dy: Math.random() - 0.3,
+      });
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p) => {
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255,255,255,0.7)";
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    return () => document.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
     <section className="certificates-section">
       <h2 className="title">My Achievements & Certificates</h2>
-      <div className="grid">
+
+      {/* Particle Canvas */}
+      <canvas id="particle-bg" className="particle-canvas"></canvas>
+
+      <div className="cards-container">
         {certificates.map((cert, index) => (
           <div className="card" key={index}>
             <div className="card-inner">
               <div className="card-front">
                 <img src={cert.img} alt={cert.title} />
+                <div className="overlay">
+                  <button onClick={() => setModalImg(cert.img)}>View</button>
+                </div>
               </div>
               <div className="card-back">
                 <p>{cert.title}</p>
-                <button onClick={() => setModalImg(cert.img)}>View</button>
               </div>
             </div>
           </div>
@@ -81,7 +150,8 @@ function Certificates() {
         </div>
       )}
 
-      <div className="wave-bg" id="wave"></div>
+      {/* Wave background */}
+      {/* <div className="wave-bg" id="wave"></div> */}
     </section>
   );
 }
