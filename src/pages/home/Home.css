@@ -251,6 +251,7 @@ body {
   }
 
   .btn {
+    margin-top: 45px;
     padding: 12px 25px;
     font-size: 0.9rem;
   }
