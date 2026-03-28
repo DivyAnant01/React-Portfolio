@@ -37,7 +37,6 @@ const Portfolio = () => {
       particles.forEach(p => {
         p.x += p.dx;
         p.y += p.dy;
-
         if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
 
@@ -57,7 +56,6 @@ const Portfolio = () => {
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-
   }, []);
 
   return (
@@ -71,7 +69,6 @@ const Portfolio = () => {
             <h1>Hi, My name is <span>Divy Anant</span></h1>
             <p>and I am a passionate</p>
             <h2 className="big-text glow-text">Full Stack Developer</h2>
-
             <div className="buttons">
               <button className="btn btn1"><span>Download Resume</span></button>
               <button className="btn outline" onClick={() => window.open("https://github.com/DivyAnant01", "_blank")}>
@@ -79,7 +76,6 @@ const Portfolio = () => {
               </button>
             </div>
           </div>
-
           <div className="hero-lottie">
             <Lottie animationData={devAnimation} loop />
           </div>
@@ -90,37 +86,30 @@ const Portfolio = () => {
       <section className="cards">
         <h2 className="section-title">Projects & Internships</h2>
         <div className="grid">
-
           <div className="card">
             <h3>MERN Stack Developer Intern</h3>
             <p>Completed full-stack internship using MongoDB, Express.js, React.js, Node.js.</p>
           </div>
-
           <div className="card">
             <h3>Wanderlust – Rental Web App</h3>
             <p>Full-stack rental platform with authentication and Cloudinary integration.</p>
           </div>
-
           <div className="card">
             <h3>Portfolio Website</h3>
             <p>Built using HTML, CSS, JS with GSAP animations.</p>
           </div>
-
           <div className="card">
             <h3>Android App Development</h3>
             <p>Completed training at IIIT Allahabad.</p>
           </div>
-
           <div className="card">
             <h3>Java Business App Training</h3>
             <p>Completed IIT Bombay SINE training with 85% score.</p>
           </div>
-
           <div className="card">
             <h3>AR/VR Development</h3>
             <p>Completed training at iHUB IIT Roorkee.</p>
           </div>
-
         </div>
       </section>
 
