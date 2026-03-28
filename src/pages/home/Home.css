@@ -4,29 +4,59 @@ body {
   background: black;
   color: white;
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
 #bg {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   z-index: -1;
 }
 
 /* HERO */
 .hero {
   display: flex;
-  justify-content: space-between;
-  padding: 120px 10%;
+  justify-content: center;
   align-items: center;
+  padding: 80px 5%;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.hero-text {
+  flex: 1 1 400px;
+  min-width: 280px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero-text h1 span {
+  color: #00f0ff;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
 }
 
 .big-text {
-  font-size: 5rem;
-  opacity: 0.15;
+  font-size: 4rem;
+  opacity: 0.1;
+  margin-bottom: 20px;
 }
 
-/* GLOW TEXT */
 .glow-text {
   animation: glowPulse 2s infinite;
 }
@@ -39,10 +69,12 @@ body {
 
 /* BUTTONS */
 .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
   margin-top: 20px;
 }
 
-/* 🔥 PREMIUM BUTTON */
 .btn {
   position: relative;
   padding: 14px 30px;
@@ -52,94 +84,106 @@ body {
   border: none;
   cursor: pointer;
   overflow: hidden;
-  margin: 10px;
 }
 
-.btn1{
+.btn1 {
   background-color: #231639;
 }
 
-/* TEXT */
 .btn span {
   position: relative;
   z-index: 2;
 }
 
-/* ANIMATED BORDER */
 .btn::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 40px;
   padding: 2px;
-  background: linear-gradient(120deg,#fff,#00f0ff,#8a2be2,#fff);
+  background: linear-gradient(120deg, #fff, #00f0ff, #8a2be2, #fff);
   background-size: 300% 300%;
   animation: borderMove 4s linear infinite;
-
-  -webkit-mask: 
-    linear-gradient(#000 0 0) content-box, 
-    linear-gradient(#000 0 0);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
 }
 
-/* INNER BG */
 .btn::after {
   content: "";
   position: absolute;
   inset: 2px;
   border-radius: 40px;
-  /* background: rgb(252, 249, 249); */
   z-index: -1;
 }
 
-/* HOVER */
 .btn:hover {
   transform: scale(1.05);
 }
 
 .btn:hover::after {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-/* ANIMATION */
 @keyframes borderMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
 }
 
-/* GRID */
+/* LOTTIE */
+.hero-lottie {
+  flex: 1 1 400px;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+}
+
+/* CARDS */
+.cards {
+  padding: 80px 5%;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 35px;
-  padding: 0 10%;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  gap: 30px;
 }
 
-/* CARD */
 .card {
   padding: 30px;
   border-radius: 20px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: 0.3s;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card:hover {
-  box-shadow: 0 0 30px rgba(255,255,255,0.2);
-}
-
-/* TITLE */
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 50px;
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 /* FOOTER */
 .footer {
   text-align: center;
-  padding: 60px;
+  padding: 60px 20px;
 }
 
 .social-icons {
@@ -159,22 +203,30 @@ body {
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
-
+@media (max-width: 1024px) {
   .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .big-text {
-    font-size: 2.5rem;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    
+  }
 
-.btn:hover{
-  background-color: transparent;
+  .hero-content {
+    flex-direction: column;
+   
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .big-text {
+    font-size: 2rem;
+  }
 }

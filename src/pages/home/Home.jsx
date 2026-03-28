@@ -8,7 +8,6 @@ import "./Home.css";
 const Portfolio = () => {
 
   useEffect(() => {
-
     const lenis = new Lenis();
     function raf(time) {
       lenis.raf(time);
@@ -16,19 +15,18 @@ const Portfolio = () => {
     }
     requestAnimationFrame(raf);
 
+    // Particle background
     const canvas = document.getElementById("bg");
     const ctx = canvas.getContext("2d");
-
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
     let particles = [];
-
-    for (let i = 0; i < 70; i++) {
+    for (let i = 0; i < 80; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        r: Math.random() * 2,
+        r: Math.random() * 2.5,
         dx: Math.random() - 0.3,
         dy: Math.random() - 0.3,
       });
@@ -36,8 +34,7 @@ const Portfolio = () => {
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      particles.forEach((p) => {
+      particles.forEach(p => {
         p.x += p.dx;
         p.y += p.dy;
 
@@ -46,61 +43,52 @@ const Portfolio = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255,255,255,0.7)";
+        ctx.fillStyle = "rgba(255,255,255,0.6)";
         ctx.fill();
       });
-
       requestAnimationFrame(animate);
     }
 
     animate();
 
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+
   }, []);
 
   return (
     <main>
-
       <canvas id="bg"></canvas>
 
       {/* HERO */}
       <section className="hero">
+        <div className="hero-content">
+          <div className="hero-text">
+            <h1>Hi, My name is <span>Divy Anant</span></h1>
+            <p>and I am a passionate</p>
+            <h2 className="big-text glow-text">Full Stack Developer</h2>
 
-        <div className="hero-left">
-          <h1>Hi, My name is <span>Divy Anant</span></h1>
+            <div className="buttons">
+              <button className="btn btn1"><span>Download Resume</span></button>
+              <button className="btn outline" onClick={() => window.open("https://github.com/DivyAnant01", "_blank")}>
+                <span>Visit GitHub</span>
+              </button>
+            </div>
+          </div>
 
-          <p>and I am a passionate</p>
-
-          <h2 className="big-text glow-text">Full Stack Developer</h2>
-
-          <div className="buttons">
-            
-            <button className="btn btn1">
-              <span>Download Resume</span>
-            </button>
-
-            <button
-              className="btn outline"
-              onClick={() =>
-                window.open("https://github.com/DivyAnant01", "_blank")
-              }
-            >
-              <span>Visit GitHub</span>
-            </button>
-
+          <div className="hero-lottie">
+            <Lottie animationData={devAnimation} loop />
           </div>
         </div>
-
-        <div className="hero-right">
-          <Lottie animationData={devAnimation} loop />
-        </div>
-
       </section>
 
-      {/* CARDS */}
+      {/* PROJECT CARDS */}
       <section className="cards">
-
         <h2 className="section-title">Projects & Internships</h2>
-
         <div className="grid">
 
           <div className="card">
@@ -134,32 +122,17 @@ const Portfolio = () => {
           </div>
 
         </div>
-
       </section>
 
       {/* FOOTER */}
       <footer className="footer">
-
         <div className="social-icons">
-
-          <a href="https://github.com/DivyAnant01" target="_blank" rel="noreferrer">
-            <FaGithub />
-          </a>
-
-          <a href="https://linkedin.com/" target="_blank" rel="noreferrer">
-            <FaLinkedin />
-          </a>
-
-          <a href="https://twitter.com/" target="_blank" rel="noreferrer">
-            <FaXTwitter />
-          </a>
-
+          <a href="https://github.com/DivyAnant01" target="_blank" rel="noreferrer"><FaGithub /></a>
+          <a href="https://linkedin.com/" target="_blank" rel="noreferrer"><FaLinkedin /></a>
+          <a href="https://twitter.com/" target="_blank" rel="noreferrer"><FaXTwitter /></a>
         </div>
-
         <p>© 2026 Divy Anant | All Rights Reserved</p>
-
       </footer>
-
     </main>
   );
 };
