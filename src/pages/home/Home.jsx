@@ -3,6 +3,7 @@ import Lenis from "lenis";
 import Lottie from "lottie-react";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import devAnimation from "../../assets/dev.json";
+import resume from "../../assets/divy_nCV.pdf"; // ✅ ADD THIS
 import "./Home.css";
 
 const Portfolio = () => {
@@ -69,13 +70,27 @@ const Portfolio = () => {
             <h1>Hi, My name is <div>Divy Anant Varshney</div></h1>
             <p>and I am a passionate</p>
             <h3 className="big-text glow-text">Full Stack Developer</h3>
+
             <div className="buttons">
-              <button className="btn btn1"><span>Download Resume</span></button>
-              <button className="btn outline" onClick={() => window.open("https://github.com/DivyAnant01", "_blank")}>
+
+              {/* ✅ DOWNLOAD BUTTON FIXED */}
+              <a href={resume} download="Divy_Anant_Varshney_Resume.pdf">
+                <button className="btn btn1">
+                  <span>Download Resume</span>
+                </button>
+              </a>
+
+              <button
+                className="btn outline"
+                onClick={() =>
+                  window.open("https://github.com/DivyAnant01", "_blank")
+                }
+              >
                 <span>Visit GitHub</span>
               </button>
             </div>
           </div>
+
           <div className="hero-lottie">
             <Lottie animationData={devAnimation} loop />
           </div>
